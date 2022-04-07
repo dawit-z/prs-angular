@@ -6,6 +6,7 @@
       class="btn btn-success"
       data-bs-toggle="modal"
       data-bs-target="#staticBackdrop"
+      routerLink="/user/create"
     >
       New User
     </button>
@@ -31,12 +32,11 @@
         <td>{{ user.phone }}</td>
         <td>{{ user.isReviewer ? "Yes" : "No" }}</td>
         <td>{{ user.isAdmin ? "Yes" : "No" }}</td>
-        <td class="action-button-column">
+        <td>
           <div class="btn-group" role="group">
             <button
               class="btn btn-outline-primary me-2 mb-1"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
+              routerLink="/user/edit/{{ user.id }}"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -57,8 +57,7 @@
             </button>
             <button
               class="btn btn-outline-danger me-2 mb-1"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
+              routerLink="/user/detail/{{ user.id }}"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

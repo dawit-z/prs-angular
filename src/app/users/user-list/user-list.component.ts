@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
 
@@ -13,9 +12,7 @@ export class UserListComponent implements OnInit {
   users!: User[];
 
   constructor(
-    private uService: UserService,
-    private router: Router
-  ) { }
+    private uService: UserService) { }
 
   ngOnInit(): void {
     this.uService.list().subscribe({

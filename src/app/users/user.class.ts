@@ -8,5 +8,4 @@ export class User {
   email: string = "";
   isReviewer: boolean = false;
   isAdmin: boolean = false;
-  name: string = this.firstname + this.lastname;
 }
