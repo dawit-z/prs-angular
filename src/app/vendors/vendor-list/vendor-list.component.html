@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="text-center">Users</h2>
+  <h2 class="text-center">Vendors</h2>
   <div class="d-flex">
     <button
       type="button"
@@ -7,7 +7,7 @@
       data-bs-toggle="modal"
       data-bs-target="#staticBackdrop"
     >
-      New User
+      New Vendor
     </button>
   </div>
 
@@ -15,23 +15,29 @@
     <thead class="text-center">
       <tr>
         <th>Id</th>
-        <th>Username</th>
+        <th>Code</th>
         <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
         <th>Phone</th>
-        <th>Reviewer?</th>
-        <th>Admin?</th>
+        <th>Email</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody class="text-center">
-      <tr *ngFor="let user of users">
-        <td>{{ user.id }}</td>
-        <td>{{ user.username }}</td>
-        <td>{{ user.firstname }} {{ user.lastname }}</td>
-        <td>{{ user.phone }}</td>
-        <td>{{ user.isReviewer ? "Yes" : "No" }}</td>
-        <td>{{ user.isAdmin ? "Yes" : "No" }}</td>
-        <td class="action-button-column">
+      <tr *ngFor="let vendor of vendors">
+        <td>{{ vendor.id }}</td>
+        <td>{{ vendor.code }}</td>
+        <td>{{ vendor.name }}</td>
+        <td>{{ vendor.address }}</td>
+        <td>{{ vendor.city }}</td>
+        <td>{{ vendor.state }}</td>
+        <td>{{ vendor.zip }}</td>
+        <td>{{ vendor.phone }}</td>
+        <td>{{ vendor.email }}</td>
+        <td>
           <div class="btn-group" role="group">
             <button
               class="btn btn-outline-primary me-2 mb-1"

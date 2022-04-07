@@ -10,7 +10,10 @@ export class NavComponent implements OnInit {
 
   menus: Nav[] = [
     new Nav("Home", "/home"),
-    new Nav("Users", "/users")
+    new Nav("Users", "/users"),
+    new Nav("Vendors", "/vendors"),
+    new Nav("Products", "/products"),
+    new Nav("Requests", "/requests")
   ];
 
   constructor() { }

@@ -9,6 +9,12 @@ import { UserComponent } from './users/user/user.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
+import { VendorComponent } from './vendors/vendor/vendor.component';
+import { VendorListComponent } from './vendors/vendor-list/vendor-list.component';
+import { ProductComponent } from './products/product/product.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { RequestComponent } from './requests/request/request.component';
+import { RequestListComponent } from './requests/request-list/request-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,13 @@ import { NavComponent } from './nav/nav.component';
     UserComponent,
     UserListComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    VendorComponent,
+    VendorListComponent,
+    ProductComponent,
+    ProductListComponent,
+    RequestComponent,
+    RequestListComponent
   ],
   imports: [
     FormsModule,
