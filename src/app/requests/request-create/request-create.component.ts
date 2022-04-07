@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/users/user.class';
+import { UserService } from 'src/app/users/user.service';
+import { Request } from '../request.class';
+import { RequestService } from '../request.service';
 
 @Component({
   selector: 'app-request-create',
@@ -7,9 +12,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestCreateComponent implements OnInit {
 
-  constructor() { }
+  request: Request = new Request();
+  users!: User[]
+
+  constructor(
+    private rService: RequestService,
+    private router: Router,
+    private uService: UserService
+  ) { }
 
   ngOnInit(): void {
+    this.uService.list().subscribe({
+      next: (res) => {
+        console.debug("Users:", res);
+        this.users = res;
+      }
+    });
+  }
+
+  save(): void {
+    this.rService.create(this.request).subscribe({
+      next: () => {
+        console.debug("Request added");
+        this.router.navigateByUrl("/requests");
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
 }

@@ -13,7 +13,8 @@ export class NavComponent implements OnInit {
     new Nav("Users", "/users"),
     new Nav("Vendors", "/vendors"),
     new Nav("Products", "/products"),
-    new Nav("Requests", "/requests")
+    new Nav("Requests", "/requests"),
+    new Nav("About", "/about")
   ];
 
   constructor() { }

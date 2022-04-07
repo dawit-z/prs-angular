@@ -20,4 +20,16 @@ export class RequestService {
   get(id: number): Observable<Request> {
     return this.http.get<Request>(`${this.url}${id}`)
   }
+
+  create(request: Request): Observable<Request> {
+    return this.http.post<Request>(this.url, request);
+  }
+
+  update(request: Request): Observable<Request> {
+    return this.http.put<any>(`${this.url}${request.id}`, request);
+  }
+
+  remove(id: number): Observable<unknown> {
+    return this.http.delete(this.url + `${id}`);
+  }
 }

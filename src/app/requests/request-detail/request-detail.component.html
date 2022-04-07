@@ -1,4 +1,4 @@
-<h2 class="text-center">Edit Request</h2>
+<h2 class="text-center">Request Details</h2>
 <div class="container">
   <table class="table table-sm mx-3 mt-3" *ngIf="request">
     <tbody>
@@ -11,29 +11,25 @@
       <tr>
         <th>User</th>
         <td>
-          <select [(ngModel)]="request.userId">
-            <option *ngFor="let user of users" value="{{ user.id }}">
-              {{ user.username }}
-            </option>
-          </select>
+          <input [(ngModel)]="request.user.username" type="text" readonly />
         </td>
       </tr>
       <tr>
         <th>Description</th>
         <td>
-          <input [(ngModel)]="request.description" type="text" />
+          <input [(ngModel)]="request.description" type="text" readonly />
         </td>
       </tr>
       <tr>
         <th>Justification</th>
         <td>
-          <input [(ngModel)]="request.justification" type="text" />
+          <input [(ngModel)]="request.justification" type="text" readonly />
         </td>
       </tr>
       <tr>
         <th>Delivery Mode</th>
         <td>
-          <input [(ngModel)]="request.deliveryMode" type="number" />
+          <input [(ngModel)]="request.deliveryMode" type="number" readonly />
         </td>
       </tr>
       <tr>
@@ -51,6 +47,13 @@
     </tbody>
   </table>
   <div class="mx-3">
-    <button (click)="update()" class="btn btn-success btn-lg">Save</button>
+    <button (click)="remove()" class="btn btn-danger btn-lg">Delete</button>
+    <button
+      *ngIf="showConfirmButton"
+      (click)="verifyRemove()"
+      class="btn btn-danger btn-lg"
+    >
+      Confirm Delete
+    </button>
   </div>
 </div>

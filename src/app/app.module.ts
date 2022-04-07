@@ -22,6 +22,12 @@ import { RequestCreateComponent } from './requests/request-create/request-create
 import { ProductCreateComponent } from './products/product-create/product-create.component';
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { UserLoginComponent } from './users/user-login/user-login.component';
+import { RequestDetailComponent } from './requests/request-detail/request-detail.component';
+import { AboutComponent } from './about/about.component';
+import { WildcardComponent } from './wildcard/wildcard.component';
+import { RequestlineCreateComponent } from './requestlines/requestline-create/requestline-create.component';
+import { RequestlineEditComponent } from './requestlines/requestline-edit/requestline-edit.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +48,13 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
     RequestCreateComponent,
     ProductCreateComponent,
     ProductEditComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    UserLoginComponent,
+    RequestDetailComponent,
+    AboutComponent,
+    WildcardComponent,
+    RequestlineCreateComponent,
+    RequestlineEditComponent
   ],
   imports: [
     FormsModule,

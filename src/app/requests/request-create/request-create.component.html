@@ -1,1 +1,56 @@
-<p>request-create works!</p>
+<h2 class="text-center">Create Request</h2>
+<div class="container">
+  <table class="table table-sm mx-3 mt-3" *ngIf="request">
+    <tbody>
+      <tr>
+        <th>Id</th>
+        <td>
+          <input [(ngModel)]="request.id" type="number" disabled />
+        </td>
+      </tr>
+      <tr>
+        <th>User</th>
+        <td>
+          <select [(ngModel)]="request.userId">
+            <option *ngFor="let user of users" value="{{ user.id }}">
+              {{ user.username }}
+            </option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td>
+          <input [(ngModel)]="request.description" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <th>Justification</th>
+        <td>
+          <input [(ngModel)]="request.justification" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <th>Delivery Mode</th>
+        <td>
+          <input [(ngModel)]="request.deliveryMode" type="number" />
+        </td>
+      </tr>
+      <tr>
+        <th>Status</th>
+        <td>
+          <input [(ngModel)]="request.status" type="text" readonly />
+        </td>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <td>
+          <input [(ngModel)]="request.total" type="text" readonly />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="mx-3">
+    <button (click)="save()" class="btn btn-success btn-lg">Save</button>
+  </div>
+</div>
