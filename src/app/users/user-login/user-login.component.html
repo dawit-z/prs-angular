@@ -1,1 +1,30 @@
-<p>user-login works!</p>
+<div class="card">
+  <div>
+    <h1 class="text-center">PRS Login</h1>
+  </div>
+  <form>
+    <form>
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input
+          name="username"
+          type="text"
+          [(ngModel)]="username"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input
+          name="password"
+          type="password"
+          [(ngModel)]="password"
+          class="form-control"
+        />
+      </div>
+      <button (click)="submit()" type="submit" class="btn btn-primary">
+        Submit
+      </button>
+    </form>
+  </form>
+</div>

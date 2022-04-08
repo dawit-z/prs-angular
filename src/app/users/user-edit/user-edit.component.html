@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <h2 class="text-center">Edit User</h2>
 <div class="container">
   <table class="table table-sm mx-3 mt-3" *ngIf="user">
@@ -35,7 +36,7 @@
       <tr>
         <th>Phone</th>
         <td>
-          <input [(ngModel)]="user.phone" type="number" />
+          <input [(ngModel)]="user.phone" type="text" />
         </td>
       </tr>
       <tr>

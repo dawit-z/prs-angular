@@ -28,6 +28,7 @@ import { AboutComponent } from './about/about.component';
 import { WildcardComponent } from './wildcard/wildcard.component';
 import { RequestlineCreateComponent } from './requestlines/requestline-create/requestline-create.component';
 import { RequestlineEditComponent } from './requestlines/requestline-edit/requestline-edit.component';
+import { RequestLineComponent } from './requests/request-line/request-line.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { RequestlineEditComponent } from './requestlines/requestline-edit/reques
     AboutComponent,
     WildcardComponent,
     RequestlineCreateComponent,
-    RequestlineEditComponent
+    RequestlineEditComponent,
+    RequestLineComponent
   ],
   imports: [
     FormsModule,

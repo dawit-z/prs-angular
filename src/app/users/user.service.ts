@@ -26,11 +26,15 @@ export class UserService {
   }
 
   update(user: User): Observable<User> {
-    return this.http.put<any>(`${this.url}${user.id}`, user);
+    return this.http.put<User>(`${this.url}${user.id}`, user);
   }
 
   remove(id: number): Observable<unknown> {
     return this.http.delete(this.url + `${id}`);
+  }
+
+  login(username: string, password: string): Observable<User> {
+    return this.http.get<User>(this.url + `${username}/${password}`);
   }
 
 }
