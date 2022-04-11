@@ -5,7 +5,7 @@ import { RequestService } from '../request.service';
 @Component({
   selector: 'app-request-list',
   templateUrl: './request-list.component.html',
-  styleUrls: ['./request-list.component.css']
+  styleUrls: ['./request-list.component.css'],
 })
 export class RequestListComponent implements OnInit {
 
@@ -16,12 +16,12 @@ export class RequestListComponent implements OnInit {
   ngOnInit(): void {
     this.rService.list().subscribe({
       next: (res) => {
-        console.debug("Requests:", res);
+        console.debug('Requests:', res);
         this.requests = res;
       },
       error: (err) => {
         console.error(err);
-      }
-    })
+      },
+    });
   }
 }

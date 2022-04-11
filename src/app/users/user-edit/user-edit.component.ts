@@ -6,7 +6,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
-  styleUrls: ['./user-edit.component.css']
+  styleUrls: ['./user-edit.component.css'],
 })
 export class UserEditComponent implements OnInit {
 
@@ -15,31 +15,31 @@ export class UserEditComponent implements OnInit {
   constructor(
     private uService: UserService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) { }
 
   update(): void {
     this.uService.update(this.user).subscribe({
       next: () => {
-        console.debug("User Updated!")
-        this.router.navigateByUrl("/users");
+        console.debug('User Updated!');
+        this.router.navigateByUrl('/users');
       },
       error: (err) => {
         console.error(err);
-      }
-    })
+      },
+    });
   }
 
   ngOnInit(): void {
-    let id = +this.route.snapshot.params["id"];
+    let id = +this.route.snapshot.params['id'];
     this.uService.get(id).subscribe({
       next: (res) => {
-        console.debug("User:", res)
+        console.debug('User:', res);
         this.user = res;
       },
       error: (err) => {
         console.error(err);
-      }
-    })
+      },
+    });
   }
 }

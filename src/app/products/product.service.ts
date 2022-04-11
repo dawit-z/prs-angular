@@ -4,10 +4,10 @@ import { Observable } from 'rxjs';
 import { Product } from './product.class';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-  url: string = "http://localhost:27091/api/products/";
+  url: string = 'http://localhost:27091/api/products/';
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +16,7 @@ export class ProductService {
   }
 
   get(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.url}${id}`)
+    return this.http.get<Product>(`${this.url}${id}`);
   }
 
   create(product: Product): Observable<Product> {

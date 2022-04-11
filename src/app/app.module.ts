@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,6 +29,8 @@ import { WildcardComponent } from './wildcard/wildcard.component';
 import { RequestlineCreateComponent } from './requestlines/requestline-create/requestline-create.component';
 import { RequestlineEditComponent } from './requestlines/requestline-edit/requestline-edit.component';
 import { RequestLineComponent } from './requests/request-line/request-line.component';
+import { RequestReviewsComponent } from './requests/request-reviews/request-reviews.component';
+import { RequestReviewItemComponent } from './requests/request-review-item/request-review-item.component';
 
 @NgModule({
   declarations: [
@@ -56,15 +58,17 @@ import { RequestLineComponent } from './requests/request-line/request-line.compo
     WildcardComponent,
     RequestlineCreateComponent,
     RequestlineEditComponent,
-    RequestLineComponent
+    RequestLineComponent,
+    RequestReviewsComponent,
+    RequestReviewItemComponent,
   ],
   imports: [
     FormsModule,
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

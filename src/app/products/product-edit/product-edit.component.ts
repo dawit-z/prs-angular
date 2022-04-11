@@ -8,11 +8,12 @@ import { ProductService } from '../product.service';
 @Component({
   selector: 'app-product-edit',
   templateUrl: './product-edit.component.html',
-  styleUrls: ['./product-edit.component.css']
+  styleUrls: ['./product-edit.component.css'],
 })
 export class ProductEditComponent implements OnInit {
 
   product!: Product;
+
   vendors!: Vendor[];
 
   constructor(
@@ -24,33 +25,33 @@ export class ProductEditComponent implements OnInit {
   update(): void {
     this.pService.update(this.product).subscribe({
       next: () => {
-        console.debug("Product Updated!")
-        this.router.navigateByUrl("/products");
+        console.debug('Product Updated!');
+        this.router.navigateByUrl('/products');
       },
       error: (err) => {
         console.error(err);
-      }
-    })
+      },
+    });
   }
 
 
   ngOnInit(): void {
     this.vService.list().subscribe({
       next: (res) => {
-        console.debug("Vendors:", res);
+        console.debug('Vendors:', res);
         this.vendors = res;
       },
-      error: (err) => { console.error(err); }
+      error: (err) => { console.error(err); },
     });
-    let id = +this.route.snapshot.params["id"];
+    let id = +this.route.snapshot.params['id'];
     this.pService.get(id).subscribe({
       next: (res) => {
-        console.debug("Product:", res)
+        console.debug('Product:', res);
         this.product = res;
       },
       error: (err) => {
         console.error(err);
-      }
-    })
+      },
+    });
   }
 }

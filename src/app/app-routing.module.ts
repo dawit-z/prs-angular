@@ -13,6 +13,8 @@ import { RequestDetailComponent } from './requests/request-detail/request-detail
 import { RequestEditComponent } from './requests/request-edit/request-edit.component';
 import { RequestLineComponent } from './requests/request-line/request-line.component';
 import { RequestListComponent } from './requests/request-list/request-list.component';
+import { RequestReviewItemComponent } from './requests/request-review-item/request-review-item.component';
+import { RequestReviewsComponent } from './requests/request-reviews/request-reviews.component';
 import { UserCreateComponent } from './users/user-create/user-create.component';
 import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { UserEditComponent } from './users/user-edit/user-edit.component';
@@ -25,42 +27,44 @@ import { VendorListComponent } from './vendors/vendor-list/vendor-list.component
 import { WildcardComponent } from './wildcard/wildcard.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "login", pathMatch: "full" },
-  { path: "home", component: HomeComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
 
 
-  { path: "users", component: UserListComponent },
-  { path: "user/create", component: UserCreateComponent },
-  { path: "user/detail/:id", component: UserDetailComponent },
-  { path: "user/edit/:id", component: UserEditComponent },
-  { path: "login", component: UserLoginComponent },
+  { path: 'users', component: UserListComponent },
+  { path: 'user/create', component: UserCreateComponent },
+  { path: 'user/detail/:id', component: UserDetailComponent },
+  { path: 'user/edit/:id', component: UserEditComponent },
+  { path: 'login', component: UserLoginComponent },
 
-  { path: "vendors", component: VendorListComponent },
-  { path: "vendor/create", component: VendorCreateComponent },
-  { path: "vendor/detail/:id", component: VendorDetailComponent },
-  { path: "vendor/edit/:id", component: VendorEditComponent },
+  { path: 'vendors', component: VendorListComponent },
+  { path: 'vendor/create', component: VendorCreateComponent },
+  { path: 'vendor/detail/:id', component: VendorDetailComponent },
+  { path: 'vendor/edit/:id', component: VendorEditComponent },
 
-  { path: "products", component: ProductListComponent },
-  { path: "product/create", component: ProductCreateComponent },
-  { path: "product/detail/:id", component: ProductDetailComponent },
-  { path: "product/edit/:id", component: ProductEditComponent },
+  { path: 'products', component: ProductListComponent },
+  { path: 'product/create', component: ProductCreateComponent },
+  { path: 'product/detail/:id', component: ProductDetailComponent },
+  { path: 'product/edit/:id', component: ProductEditComponent },
 
-  { path: "requests", component: RequestListComponent },
-  { path: "request/create", component: RequestCreateComponent },
-  { path: "request/detail/:id", component: RequestDetailComponent },
-  { path: "request/edit/:id", component: RequestEditComponent },
-  { path: "request/lines/:id", component: RequestLineComponent },
+  { path: 'requests', component: RequestListComponent },
+  { path: 'request/create', component: RequestCreateComponent },
+  { path: 'request/detail/:id', component: RequestDetailComponent },
+  { path: 'request/edit/:id', component: RequestEditComponent },
+  { path: 'request/lines/:id', component: RequestLineComponent },
+  { path: 'request/reviews', component: RequestReviewsComponent },
+  { path: 'request/review/:id', component: RequestReviewItemComponent },
 
-  { path: "requestline/create/", component: RequestlineCreateComponent },
-  { path: "requestline/edit/:id", component: RequestlineEditComponent },
+  { path: 'requestline/create/:id', component: RequestlineCreateComponent },
+  { path: 'requestline/edit/:id', component: RequestlineEditComponent },
 
-  { path: "about", component: AboutComponent },
-  { path: "**", component: WildcardComponent }
+  { path: 'about', component: AboutComponent },
+  { path: '**', component: WildcardComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 
 export class AppRoutingModule { }

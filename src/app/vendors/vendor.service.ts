@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 import { Vendor } from './vendor.class';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 export class VendorService {
 
-  url: string = "http://localhost:27091/api/vendors/";
+  url: string = 'http://localhost:27091/api/vendors/';
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class VendorService {
   }
 
   get(id: number): Observable<Vendor> {
-    return this.http.get<Vendor>(`${this.url}${id}`)
+    return this.http.get<Vendor>(`${this.url}${id}`);
   }
 
   create(vendor: Vendor): Observable<Vendor> {

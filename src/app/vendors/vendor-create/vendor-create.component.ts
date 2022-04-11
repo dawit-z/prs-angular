@@ -6,7 +6,7 @@ import { VendorService } from '../vendor.service';
 @Component({
   selector: 'app-vendor-create',
   templateUrl: './vendor-create.component.html',
-  styleUrls: ['./vendor-create.component.css']
+  styleUrls: ['./vendor-create.component.css'],
 })
 export class VendorCreateComponent implements OnInit {
 
@@ -19,13 +19,13 @@ export class VendorCreateComponent implements OnInit {
   save(): void {
     this.vService.create(this.vendor).subscribe({
       next: () => {
-        console.debug("Vendor added");
-        this.router.navigateByUrl("/vendors")
+        console.debug('Vendor added');
+        this.router.navigateByUrl('/vendors');
       },
       error: (err) => {
-        console.error(err)
-      }
-    })
+        console.error(err);
+      },
+    });
   }
 
   ngOnInit(): void {

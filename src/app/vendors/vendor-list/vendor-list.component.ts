@@ -5,7 +5,7 @@ import { VendorService } from '../vendor.service';
 @Component({
   selector: 'app-vendor-list',
   templateUrl: './vendor-list.component.html',
-  styleUrls: ['./vendor-list.component.css']
+  styleUrls: ['./vendor-list.component.css'],
 })
 export class VendorListComponent implements OnInit {
 
@@ -17,13 +17,13 @@ export class VendorListComponent implements OnInit {
   ngOnInit(): void {
     this.vService.list().subscribe({
       next: (res) => {
-        console.debug("Vendors:", res);
+        console.debug('Vendors:', res);
         this.vendors = res;
       },
       error: (err) => {
         console.error(err);
-      }
-    })
+      },
+    });
   }
 
 }

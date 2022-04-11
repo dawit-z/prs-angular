@@ -6,7 +6,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
-  styleUrls: ['./user-create.component.css']
+  styleUrls: ['./user-create.component.css'],
 })
 export class UserCreateComponent implements OnInit {
 
@@ -19,13 +19,13 @@ export class UserCreateComponent implements OnInit {
   save(): void {
     this.uService.create(this.user).subscribe({
       next: () => {
-        console.debug("User added");
-        this.router.navigateByUrl("/users")
+        console.debug('User added');
+        this.router.navigateByUrl('/users');
       },
       error: (err) => {
-        console.error(err)
-      }
-    })
+        console.error(err);
+      },
+    });
   }
 
   ngOnInit(): void {

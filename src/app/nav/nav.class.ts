@@ -1,5 +1,6 @@
 export class Nav {
   display: string;
+
   route: string;
 
   constructor(display: string, route: string) {

@@ -1,2 +1,33 @@
 <app-nav></app-nav>
-<p>requestline-create works!</p>
+<h2 class="text-center">Create Requestline</h2>
+<div class="container">
+  <table class="table table-sm mx-3 mt-3" *ngIf="line">
+    <tbody>
+      <tr>
+        <th>Id</th>
+        <td>
+          <input [(ngModel)]="line.id" type="number" disabled />
+        </td>
+      </tr>
+      <tr>
+        <th>Product</th>
+        <td>
+          <select [(ngModel)]="line.productId">
+            <option *ngFor="let product of products" value="{{ product.id }}">
+              {{ product.name }}
+            </option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th>Quantity</th>
+        <td>
+          <input [(ngModel)]="line.quantity" type="number" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="mx-3">
+    <button (click)="save()" class="btn btn-success btn-lg">Save</button>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<app-nav></app-nav>
+<div class="container">
+  <h2 class="text-center">Reviews</h2>
+  <table class="table table-sm table-hover">
+    <thead class="text-center">
+      <tr>
+        <th>Id</th>
+        <th>User</th>
+        <th>Description</th>
+        <th>RejectionReason</th>
+        <th>Status</th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let request of requests">
+        <td>{{ request.id }}</td>
+        <td>{{ request.user.username }}</td>
+        <td>{{ request.description }}</td>
+        <td>{{ request.rejectionReason }}</td>
+        <td>{{ request.status }}</td>
+        <td>{{ request.total }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+            routerLink="/request/review/{{ request.id }}"
+          >
+            Review
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

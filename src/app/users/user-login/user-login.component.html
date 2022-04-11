@@ -1,23 +1,25 @@
 <div class="card">
   <div>
-    <h1 class="text-center">PRS Login</h1>
+    <h1 class="display-3 text-center">PRS Login</h1>
   </div>
   <form>
     <form>
       <div class="mb-3">
-        <label class="form-label">Username</label>
         <input
           name="username"
           type="text"
+          placeholder="Username:"
+          autocomplete="username"
           [(ngModel)]="username"
           class="form-control"
         />
       </div>
       <div class="mb-3">
-        <label class="form-label">Password</label>
         <input
           name="password"
           type="password"
+          placeholder="Password:"
+          autocomplete="current-password"
           [(ngModel)]="password"
           class="form-control"
         />

@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 import { User } from './user.class';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 export class UserService {
 
-  url: string = "http://localhost:27091/api/users/";
+  url: string = 'http://localhost:27091/api/users/';
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class UserService {
   }
 
   get(id: number): Observable<User> {
-    return this.http.get<User>(`${this.url}${id}`)
+    return this.http.get<User>(`${this.url}${id}`);
   }
 
   create(user: User): Observable<User> {

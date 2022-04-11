@@ -7,12 +7,14 @@ import { ProductService } from '../product.service';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
 
   product!: Product;
+
   vendors!: Vendor[];
+
   showConfirmButton: boolean = false;
 
   constructor(
@@ -23,24 +25,25 @@ export class ProductDetailComponent implements OnInit {
   remove(): void {
     this.showConfirmButton = !this.showConfirmButton;
   }
+
   verifyRemove(): void {
     this.pService.remove(this.product.id).subscribe({
       next: () => {
-        console.debug("Product deleted");
-        this.router.navigateByUrl("/products");
+        console.debug('Product deleted');
+        this.router.navigateByUrl('/products');
       },
-      error: (err) => { console.error(err); }
+      error: (err) => { console.error(err); },
     });
   }
 
   ngOnInit(): void {
-    let id = +this.route.snapshot.params["id"];
+    let id = +this.route.snapshot.params['id'];
     this.pService.get(id).subscribe({
       next: (res) => {
-        console.debug("Product:", res);
+        console.debug('Product:', res);
         this.product = res;
       },
-      error: (err) => { console.error(err); }
+      error: (err) => { console.error(err); },
     });
   }
 }

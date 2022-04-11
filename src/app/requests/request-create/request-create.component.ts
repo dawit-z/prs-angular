@@ -8,37 +8,38 @@ import { RequestService } from '../request.service';
 @Component({
   selector: 'app-request-create',
   templateUrl: './request-create.component.html',
-  styleUrls: ['./request-create.component.css']
+  styleUrls: ['./request-create.component.css'],
 })
 export class RequestCreateComponent implements OnInit {
 
   request: Request = new Request();
-  users!: User[]
+
+  users!: User[];
 
   constructor(
     private rService: RequestService,
     private router: Router,
-    private uService: UserService
+    private uService: UserService,
   ) { }
 
   ngOnInit(): void {
     this.uService.list().subscribe({
       next: (res) => {
-        console.debug("Users:", res);
+        console.debug('Users:', res);
         this.users = res;
-      }
+      },
     });
   }
 
   save(): void {
     this.rService.create(this.request).subscribe({
       next: () => {
-        console.debug("Request added");
-        this.router.navigateByUrl("/requests");
+        console.debug('Request added');
+        this.router.navigateByUrl('/requests');
       },
       error: (err) => {
         console.log(err);
-      }
+      },
     });
   }
 
