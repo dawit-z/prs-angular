@@ -1,8 +1,8 @@
 <app-nav></app-nav>
-<div class="container" *ngIf="request">
+<div class="container">
   <h2 class="text-center">Request</h2>
   <table class="table table-lg table-hover">
-    <thead class="text-center">
+    <thead class="text-center" *ngIf="request">
       <tr>
         <th>Id</th>
         <th>Username</th>
@@ -41,7 +41,7 @@
       class="btn btn-success"
       data-bs-toggle="modal"
       data-bs-target="#staticBackdrop"
-      routerLink="/requestline/create/{{ request.id }}"
+      (click)="create(request.id)"
     >
       New Requestline
     </button>
@@ -51,12 +51,12 @@
   <table class="table table-sm table-hover">
     <thead class="text-center">
       <tr>
-        <td>Id</td>
-        <td>Product</td>
-        <td>Quantity</td>
-        <td>Price</td>
-        <td>Line Total</td>
-        <td>Actions</td>
+        <th>Id</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Line Total</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody class="text-center">

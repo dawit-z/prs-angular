@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { User } from './users/user.class';
 import { Router } from '@angular/router';
 
+const testUser = new User();
+
 @Injectable({
   providedIn: 'root',
 })
 
 export class SystemService {
 
-  user!: any;
+  user: User = testUser;
 
   constructor(
     private router: Router) { }
@@ -22,7 +24,7 @@ export class SystemService {
   }
 
   checkLoggedIn() {
-    if (this.user === null) {
+    if (this.getLoggedIn() === testUser) {
       this.router.navigateByUrl('/login');
     }
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Requestline } from 'src/app/requestlines/requestline.class';
 import { RequestlineService } from 'src/app/requestlines/requestline.service';
+import { SystemService } from 'src/app/system.service';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
 
@@ -12,13 +13,14 @@ import { RequestService } from '../request.service';
 })
 export class RequestLineComponent implements OnInit {
 
-  request!: Request;
+  request: Request = new Request();
 
   constructor(
     private rService: RequestService,
     private lService: RequestlineService,
+    private sService: SystemService,
     private router: Router,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) { }
 
   review() {
@@ -31,6 +33,10 @@ export class RequestLineComponent implements OnInit {
         console.error(err);
       },
     });
+  }
+
+  create(reqId: number) {
+    this.router.navigateByUrl(`/requestline/create/${reqId}`);
   }
 
   edit(line: Requestline) {
@@ -50,7 +56,7 @@ export class RequestLineComponent implements OnInit {
   }
 
   refresh(): void {
-    let id = this.route.snapshot.params['id'];
+    let id = +this.route.snapshot.params['id'];
     this.rService.get(id).subscribe({
       next: (res) => {
         console.log('Request', res);
@@ -60,9 +66,11 @@ export class RequestLineComponent implements OnInit {
         console.error(err);
       },
     });
+
   }
 
   ngOnInit(): void {
+    this.sService.checkLoggedIn();
     this.refresh();
   }
 

@@ -28,7 +28,7 @@ export class RequestlineCreateComponent implements OnInit {
     this.lService.create(this.line).subscribe({
       next: () => {
         console.log('Success!');
-        this.router.navigateByUrl('request/lines/' + `${this.line.requestId}`);
+        this.router.navigateByUrl(`request/lines/${this.line.requestId}`);
       },
       error: (err) => {
         console.error(err);

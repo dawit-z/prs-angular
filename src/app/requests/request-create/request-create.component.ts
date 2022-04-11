@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SystemService } from 'src/app/system.service';
 import { User } from 'src/app/users/user.class';
 import { UserService } from 'src/app/users/user.service';
 import { Request } from '../request.class';
@@ -14,24 +15,17 @@ export class RequestCreateComponent implements OnInit {
 
   request: Request = new Request();
 
-  users!: User[];
-
   constructor(
     private rService: RequestService,
     private router: Router,
-    private uService: UserService,
+    private sService: SystemService,
   ) { }
 
   ngOnInit(): void {
-    this.uService.list().subscribe({
-      next: (res) => {
-        console.debug('Users:', res);
-        this.users = res;
-      },
-    });
   }
 
   save(): void {
+    this.request.userId = this.sService.getLoggedIn().id;
     this.rService.create(this.request).subscribe({
       next: () => {
         console.debug('Request added');

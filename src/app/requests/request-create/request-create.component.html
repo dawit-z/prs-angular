@@ -12,11 +12,12 @@
       <tr>
         <th>User</th>
         <td>
-          <select [(ngModel)]="request.userId">
-            <option *ngFor="let user of users" value="{{ user.id }}">
-              {{ user.username }}
-            </option>
-          </select>
+          <input
+            *ngIf="request.user"
+            [(ngModel)]="request.user.username"
+            type="text"
+            readonly
+          />
         </td>
       </tr>
       <tr>

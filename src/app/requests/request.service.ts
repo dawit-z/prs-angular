@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SystemService } from '../system.service';
 import { Request } from './request.class';
 
 @Injectable({
@@ -11,7 +12,9 @@ export class RequestService {
 
   url: string = 'http://localhost:27091/api/requests/';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private sService: SystemService) { }
 
   list(): Observable<Request[]> {
     return this.http.get<Request[]>(this.url);
@@ -48,4 +51,5 @@ export class RequestService {
   reviews(id: number): Observable<Request[]> {
     return this.http.get<Request[]>(`${this.url}reviews/${id}`);
   }
+
 }

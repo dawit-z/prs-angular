@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Nav } from './nav.class';
 import { SystemService } from '../system.service';
+import { User } from '../users/user.class';
 
 @Component({
   selector: 'app-nav',
@@ -9,9 +10,7 @@ import { SystemService } from '../system.service';
 })
 export class NavComponent implements OnInit {
 
-  getUsername() {
-    return this.sService.getLoggedIn().username;
-  }
+  user: User = new User();
 
   menus: Nav[] = [
     new Nav('Home', '/home'),
@@ -28,5 +27,6 @@ export class NavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.user = this.sService.getLoggedIn();
   }
 }
