@@ -38,6 +38,7 @@ export class RequestReviewItemComponent implements OnInit {
 
   confirmReject() {
     this.showConfirmButton = false;
+    //Hide approve and reject button when clicked.
     this.rService.reject(this.request).subscribe({
       next: () => {
         console.debug('Success');
