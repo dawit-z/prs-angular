@@ -1,8 +1,8 @@
 <app-nav></app-nav>
-<div class="container">
+<div class="container" *ngIf="request">
   <h2 class="text-center">Request</h2>
   <table class="table table-lg table-hover">
-    <thead class="text-center" *ngIf="request">
+    <thead class="text-center">
       <tr>
         <th>Id</th>
         <th>Username</th>
@@ -25,7 +25,7 @@
             class="btn btn-secondary"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
-            (click)="review()"
+            (click)="review(request)"
           >
             Review
           </button>
@@ -47,8 +47,7 @@
     </button>
   </div>
   <br />
-
-  <table class="table table-sm table-hover">
+  <table class="table table-sm table-hover" *ngIf="request.requestLines">
     <thead class="text-center">
       <tr>
         <th>Id</th>
@@ -60,12 +59,12 @@
       </tr>
     </thead>
     <tbody class="text-center">
-      <tr *ngFor="let line of request.requestlines">
+      <tr *ngFor="let line of request.requestLines">
         <td>{{ line.id }}</td>
         <td>{{ line.product.name }}</td>
         <td>{{ line.quantity }}</td>
-        <td>{{ line.product.price }}</td>
-        <td>{{ line.product.price * line.quantity }}</td>
+        <td>{{ line.product.price | currency }}</td>
+        <td>{{ line.product.price * line.quantity | currency }}</td>
         <td>
           <div class="btn-group" role="group">
             <button

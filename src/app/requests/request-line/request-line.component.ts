@@ -17,14 +17,14 @@ export class RequestLineComponent implements OnInit {
 
   constructor(
     private rService: RequestService,
-    private lService: RequestlineService,
+    private lineService: RequestlineService,
     private sService: SystemService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) { }
 
-  review() {
-    this.rService.review(this.request).subscribe({
+  review(request: Request) {
+    this.rService.review(request).subscribe({
       next: () => {
         console.debug('Reviewed');
         this.refresh();
@@ -44,7 +44,7 @@ export class RequestLineComponent implements OnInit {
   }
 
   remove(line: Requestline) {
-    this.lService.remove(line.id).subscribe({
+    this.lineService.remove(line.id).subscribe({
       next: () => {
         console.log('Success!');
         this.refresh();
@@ -56,17 +56,16 @@ export class RequestLineComponent implements OnInit {
   }
 
   refresh(): void {
-    let id = +this.route.snapshot.params['id'];
+    let id = this.route.snapshot.params['id'];
     this.rService.get(id).subscribe({
       next: (res) => {
-        console.log('Request', res);
+        console.log('Success!', res);
         this.request = res;
       },
       error: (err) => {
         console.error(err);
       },
     });
-
   }
 
   ngOnInit(): void {

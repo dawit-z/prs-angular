@@ -13,8 +13,6 @@ export class RequestlineService {
 
   constructor(private http: HttpClient) { }
 
-
-
   get(id: number): Observable<Requestline> {
     return this.http.get<Requestline>(`${this.url}${id}`);
   }

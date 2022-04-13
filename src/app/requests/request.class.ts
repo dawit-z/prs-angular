@@ -16,7 +16,7 @@ export class Request {
 
   total: number = 0;
 
-  requestlines!: Requestline[];
+  requestLines!: Requestline[];
 
   userId: number = 0;
 

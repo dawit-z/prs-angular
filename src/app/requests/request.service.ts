@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SystemService } from '../system.service';
 import { Request } from './request.class';
 
 @Injectable({
@@ -13,8 +12,7 @@ export class RequestService {
   url: string = 'http://localhost:27091/api/requests/';
 
   constructor(
-    private http: HttpClient,
-    private sService: SystemService) { }
+    private http: HttpClient) { }
 
   list(): Observable<Request[]> {
     return this.http.get<Request[]>(this.url);
@@ -44,8 +42,8 @@ export class RequestService {
     return this.http.delete(this.url + `${id}`);
   }
 
-  review(request: Request): Observable<any> {
-    return this.http.put<any>(this.url + `review/${request.id}`, request);
+  review(request: Request): Observable<unknown> {
+    return this.http.put<unknown>(this.url + `review/${request.id}`, request);
   }
 
   reviews(id: number): Observable<Request[]> {
